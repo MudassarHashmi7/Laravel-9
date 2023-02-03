@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class RoadmapStep extends Model
 {
     use HasFactory;
+    public function content()
+    {
+        return $this->hasone(Content::class);
+    }
 }
+

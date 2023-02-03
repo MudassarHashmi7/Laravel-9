@@ -15,15 +15,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-//            $table->unsignedBigInteger('region_id');
-            $table->string('stripe_account_id')->nullable();
+            $table->unsignedBigInteger('region_id');
+//            $table->foreignId('region_id')->constrained('regions')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('stripe_account_id');
             $table->string('stripe_onboarded');
             $table->integer('account_status');
             $table->integer('current_roadmap_step');
             $table->integer('photo');
             $table->string('full_name');
             $table->string('email');
-            $table->string('phone');
+            $table->integer('phone');
             $table->string('password');
             $table->string('gender');
             $table->string('pronouns');
@@ -42,7 +43,6 @@ return new class extends Migration
             $table->text('billing_address');
             $table->dateTime('last_login');
             $table->timestamps();
-            $table->foreignId('region_id')->constrained('regions')->references('id')->onDelete('cascade');
         });
     }
 

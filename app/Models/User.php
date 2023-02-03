@@ -57,19 +57,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(EntrepreneurDocument::class);
     }
-//    public function region()
-//    {
-//        return $this->hasOne(Region::class);
-//    }
+    public function region()
+    {
+        return $this->hasOne(Region::class);
+    }
     public function role()
     {
-        return $this->belongsToMany(UserRole::class, 'user_role_maps', 'user_id', 'user_role_id');
+        return $this->belongsToMany(UserRole::class,'user_role_maps','user_id','user_role_id');
     }
 
-    public function userrolepermission()
-    {
-        return $this->hasOne(UserRolePermission::class);
-    }
 
     public function usernotification()
     {

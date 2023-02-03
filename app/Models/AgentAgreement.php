@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AgentAgreement extends Model
 {
-    /**
-     * @return mixed
-     */
+    use HasFactory;
     public function user()
     {
         return $this->belongsToMany(User::class);

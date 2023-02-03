@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('user_role_permission_maps', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_role_id')->constrained('user_roles')->references('id');
-            $table->foreignId('user_role_permission_id')->constrained('user_role_permissions')->references('id');
+            $table->foreignId('user_role_id')->constrained('user_roles')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_role_permission_id')->constrained('user_role_permissions')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
