@@ -11,11 +11,11 @@ class RoadmapStep extends Model
 
     public function regioncontent()
     {
-        return $this->hasMany(RegionContent::class);
+        return $this->hasMany(RegionContent::class,'roadmap_step_id');
     }
     public function content()
     {
-        return $this->belongsTo(Content::class);
+        return $this->belongsTo(Content::class,'roadmap_step_id');
     }
 }
 

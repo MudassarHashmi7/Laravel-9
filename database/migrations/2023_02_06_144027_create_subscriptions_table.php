@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('invoices', function (Blueprint $table) {
+        Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('payee_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('recipient_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('appointment_id')->constrained('appointments')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('type');
-            $table->string('status');
+            $table->integer('subscription_term');
+            $table->boolean('is_public');
+            $table->string('token');
+            $table->boolean('payment_on_signup');
             $table->double('tax');
             $table->double('total');
-            $table->text('billing_address');
             $table->text('description');
 
             $table->timestamps();
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoices');
+        Schema::dropIfExists('subscriptions');
     }
 };

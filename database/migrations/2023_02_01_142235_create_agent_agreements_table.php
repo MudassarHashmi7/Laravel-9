@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('agent_id')->constrained('users')->references('id');
             $table->double('fee_percentage');
             $table->text('description');
-//            $table->foreignId('document_id')->constrained();
+            $table->foreignId('document_id')->constrained('medias')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

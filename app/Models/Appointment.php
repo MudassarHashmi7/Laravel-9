@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model
 {
     use HasFactory;
-    public function user()
+    public function userentrepreneur()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'entrepreneur_id');
+    }
+    public function useragent()
+    {
+        return $this->belongsTo(User::class,'agent_id');
     }
 
     public function appoinmenttype()
@@ -21,4 +25,5 @@ class Appointment extends Model
     {
         return $this->hasMany(Invoice::class);
     }
+
 }

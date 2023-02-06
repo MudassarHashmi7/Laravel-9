@@ -15,14 +15,11 @@ return new class extends Migration
     {
         Schema::create('entrepreneur_documents', function (Blueprint $table) {
             $table->id();
-//            $table->unsignedBigInteger('entrepreneur_id');
-//            $table->unsignedBigInteger('agent_id');
             $table->foreignId('entrepreneur_id')->constrained('users')->references('id');
             $table->foreignId('agent_id')->constrained('users')->references('id');
             $table->string('name');
             $table->text('description');
-//            $table->unsignedBigInteger('document_id');
-            $table->foreignId('document_id')->constrained('medias')->references('id');
+            $table->foreignId('document_id')->constrained('medias')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

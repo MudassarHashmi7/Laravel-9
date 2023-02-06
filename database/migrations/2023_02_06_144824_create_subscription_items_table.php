@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('subscription_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('roadmap_step_id')->constrained('roadmap_steps')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->boolean('is_editable');
-            $table->integer('type');
-            $table->text('content');
+            $table->foreignId('subscription_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->text('description');
+            $table->double('price');
             $table->integer('sort_order');
+
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('subscription_items');
     }
 };

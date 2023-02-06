@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function agentagreement()
     {
-        return $this->hasMany(AgentAgreement::class);
+        return $this->belongsTo(AgentAgreement::class,'agent_id');
     }
 
     public function entrepreneurdocument()
@@ -59,7 +59,7 @@ class User extends Authenticatable
     }
     public function region()
     {
-        return $this->hasOne(Region::class);
+        return $this->belongsTo(Region::class);
     }
     public function roleusers()
     {
@@ -67,16 +67,21 @@ class User extends Authenticatable
     }
 
 
-    public function usernotification()
+    //Transaction
+
+    public function userpayee()
     {
-        return $this->hasOne(UserNotification::class);
+        return $this->hasMany(Invoice::class,'payee_id');
+    }
+    public function userrecipient()
+    {
+        return $this->hasMany(Invoice::class,'recipient_id');
+    }
+    public function userappointment()
+    {
+        return $this->hasMany(Invoice::class,'appointment_id');
     }
 
-    //Transaction
-    public function invoice()
-    {
-        return $this->hasMany(Invoice::class);
-    }
 
 
 //Appointment tables
@@ -93,11 +98,21 @@ class User extends Authenticatable
 
     public function scoreboard()
     {
-        return $this->hasMany(Scoreboard::class);
+        return $this->hasMany(Scoreboard::class,'user_id');
     }
     public function media()
     {
         return $this->hasMany(Media::class);
     }
 
+    ////subscription
+
+    public function usersubscriptionpayee()
+    {
+        return $this->hasMany(Subscription::class,'payee_id');
+    }
+    public function usersubscriptionrecipient()
+    {
+        return $this->hasMany(Subscription::class,'recipient_id');
+    }
 }

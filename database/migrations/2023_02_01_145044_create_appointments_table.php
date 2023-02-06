@@ -15,16 +15,11 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-//            $table->unsignedBigInteger('entrepreneur_id');
             $table->foreignId('entrepreneur_id')->constrained('users')->references('id');
-            $table->foreignId('appointment_type_id')->constrained('appointment_types')->references('id');
-//            $table->unsignedBigInteger('agent_id');
-            $table->foreignId('agent_id')->constrained('users')->references('id');
+            $table->foreignId('appointment_type_id')->constrained('appointment_types')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('agent_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->string('communication_type');
             $table->string('token');
-//            $table->timestamps('start_time');
-//            $table->timestamps('end_time');
-//            $table->integer('total_time');
             $table->timestamps();
         });
     }

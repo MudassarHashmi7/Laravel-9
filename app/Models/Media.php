@@ -12,4 +12,12 @@ class Media extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function agentagreement()
+    {
+        return $this->hasMany(AgentAgreement::class, 'document_id');
+    }
+    public function entrepreneurdocument()
+    {
+        return $this->hasMany(EntrepreneurDocument::class, 'document_id');
+    }
 }

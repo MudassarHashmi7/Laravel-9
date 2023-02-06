@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class UserNotification extends Model
 {
     use HasFactory;
-    public function user()
+    public function region()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Region::class);
     }
 }

@@ -10,6 +10,14 @@ class AgentAgreement extends Model
     use HasFactory;
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(User::class);
+    }
+    public function useragent()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function media()
+    {
+        return $this->belongsTo(Media::class);
     }
 }

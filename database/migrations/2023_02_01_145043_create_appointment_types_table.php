@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('appointment_types', function (Blueprint $table) {
             $table->id();
 //            $table->unsignedBigInteger('agent_id');
-            $table->foreignId('agent_id')->constrained('users')->references('id');
+            $table->foreignId('agent_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->string('communication_types');
             $table->string('name');
-            $table->foreignId('image_id')->constrained('medias')->references('id');
+            $table->foreignId('image_id')->constrained('medias')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->text('description');
             $table->text('booking_message');
             $table->integer('length');
