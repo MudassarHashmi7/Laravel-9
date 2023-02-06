@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function userrolemap()
     {
-        return $this->hasMany(UserRoleMap::class);
+        return $this->hasMany(RoleUser::class);
     }
 
     public function agentagreement()
@@ -61,9 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Region::class);
     }
-    public function role()
+    public function roleusers()
     {
-        return $this->belongsToMany(UserRole::class,'user_role_maps','user_id','user_role_id');
+        return $this->belongsToMany(RoleUser::class,'role_user','user_id','role_id');
     }
 
 
@@ -73,20 +73,11 @@ class User extends Authenticatable
     }
 
     //Transaction
-    public function transaction()
-    {
-        return $this->hasMany(Transaction::class);
-    }
-
     public function invoice()
     {
         return $this->hasMany(Invoice::class);
     }
 
-    public function invoiceitem()
-    {
-        return $this->hasone(InvoiceItem::class);
-    }
 
 //Appointment tables
 
@@ -97,7 +88,7 @@ class User extends Authenticatable
 
     public function appointmenttype()
     {
-        return $this->hasMany(Appointment::class);
+        return $this->hasMany(AppointmentType::class);
     }
 
     public function scoreboard()

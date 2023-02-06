@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
-use App\Models\UserRole;
-use App\Models\UserRoleMap;
+use App\Models\RoleUser;
+//use App\Models\RoleUser;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserRolePermissionSeeder::class,
-            UserRoleSeeder::class,
+            PermissionSeeder::class,
+            RoleSeeder::class,
             UserSeeder::class,
-           // UserRoleMapSeeder::class,
+           // RoleUserSeeder::class,
         ]);
 //        {
 //        DB::table('users')->insert([

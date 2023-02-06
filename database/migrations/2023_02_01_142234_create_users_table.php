@@ -36,7 +36,7 @@ return new class extends Migration
             $table->string('social_twitter');
             $table->string('social_instagram');
             $table->string('social_other');
-            $table->text('availability_settings');
+            $table->string('availability_settings');
             $table->integer('logo');
             $table->string('primary_colour');
             $table->string('secondary_colour');

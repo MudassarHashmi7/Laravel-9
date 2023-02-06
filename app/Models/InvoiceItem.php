@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class InvoiceItem extends Model
 {
     use HasFactory;
-    public function user()
+    public function invoice()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Invoice::class);
     }
 }

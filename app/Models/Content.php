@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     use HasFactory;
-    public function user()
+    public function roadmapstep()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(RoadmapStep::class);
     }
+    public function regioncontent()
+    {
+        return $this->belongsTo(RegionContent::class);
+    }
+
 }

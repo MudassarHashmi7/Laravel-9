@@ -12,8 +12,13 @@ class Appointment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     public function appoinmenttype()
     {
-        return $this->hasOne(AppointmentType::class);
+        return $this->belongsTo(Appointment::class);
+    }
+    public function invoice()
+    {
+        return $this->hasMany(Invoice::class);
     }
 }

@@ -10,7 +10,16 @@ class Invoice extends Model
     use HasFactory;
     public function user()
     {
-        return $this->belongsTo(Invoice::class);
+        return $this->belongsTo(User::class);
     }
+    public function appointment()
+    {
+        return $this->belongsTo(Appointment::class);
+    }
+    public function invoiceitem()
+    {
+        return $this->hasMany(InvoiceItem::class);
+    }
+
 }
 
