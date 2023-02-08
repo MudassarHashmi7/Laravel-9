@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('region_id');
-//            $table->foreignId('region_id')->constrained('regions')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('region_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('stripe_account_id');
             $table->string('stripe_onboarded');
             $table->integer('account_status');

@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payee_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('recipient_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('appointment_id')->constrained('appointments')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('payee_id')->nullable()->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('recipient_id')->nullable()->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('subscription_id')->nullable()->constrained('subscriptions')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('appointment_id')->nullable()->constrained('appointments')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->string('type');
             $table->string('status');
             $table->double('tax');

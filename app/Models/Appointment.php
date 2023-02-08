@@ -10,11 +10,11 @@ class Appointment extends Model
     use HasFactory;
     public function userentrepreneur()
     {
-        return $this->belongsTo(User::class,'entrepreneur_id');
+        return $this->belongsTo(User::class);
     }
     public function useragent()
     {
-        return $this->belongsTo(User::class,'agent_id');
+        return $this->belongsTo(User::class);
     }
 
     public function appoinmenttype()

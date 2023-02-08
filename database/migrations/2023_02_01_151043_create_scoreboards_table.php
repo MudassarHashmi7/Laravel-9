@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('scoreboards', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->double('revenue');
             $table->double('headcount');
             $table->double('revenue_per_employee');

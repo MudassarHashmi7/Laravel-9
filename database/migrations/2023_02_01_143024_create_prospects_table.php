@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('prospects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('region_id')->constrained('regions');
-            $table->boolean('is_registered');
+            $table->foreignId('region_id')->nullable()->constrained('regions')->references('id')->onUpdate('cascade')->onDelete('cascade');;
+            $table->integer('is_registered');
             $table->string('full_name');
             $table->string('email');
             $table->string('phone');

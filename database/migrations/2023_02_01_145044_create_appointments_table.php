@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('entrepreneur_id')->constrained('users')->references('id');
-            $table->foreignId('appointment_type_id')->constrained('appointment_types')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('agent_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('entrepreneur_id')->nullable()->constrained('users')->references('id');
+            $table->foreignId('appointment_type_id')->nullable()->constrained('appointment_types')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('agent_id')->nullable()->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->string('communication_type');
             $table->string('token');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->integer('total_time');
             $table->timestamps();
         });
     }

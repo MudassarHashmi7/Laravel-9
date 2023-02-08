@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('invoice_id')->constrained('invoices')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('invoice_id')->nullable()->constrained('invoices')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->double('total');
             $table->double('fee');
             $table->text('stripe_data');

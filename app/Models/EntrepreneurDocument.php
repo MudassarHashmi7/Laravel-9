@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class EntrepreneurDocument extends Model
 {
     use HasFactory;
-    public function user()
+    public function userentrepreneur()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function useragent()
     {
         return $this->belongsTo(User::class);
     }

@@ -14,7 +14,7 @@ class Content extends Model
     }
     public function regioncontent()
     {
-        return $this->belongsTo(RegionContent::class);
+        return $this->belongsTo(RegionContent::class,'original_content_id');
     }
 
 }

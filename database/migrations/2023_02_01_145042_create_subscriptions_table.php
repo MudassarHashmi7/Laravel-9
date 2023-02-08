@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payee_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('recipient_id')->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('payee_id')->nullable()->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('recipient_id')->nullable()->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('subscription_term');
             $table->boolean('is_public');
             $table->string('token');

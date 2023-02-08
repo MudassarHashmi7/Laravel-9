@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('region_contents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('region_id')->constrained('regions')->references('id');
-            $table->foreignId('original_content_id')->constrained('content')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('original_content_id')->constrained('contents')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('roadmap_step_id')->constrained('roadmap_steps')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->string('type');
             $table->text('content');

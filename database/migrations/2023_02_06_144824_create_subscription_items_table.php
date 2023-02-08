@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('subscription_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('subscription_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('subscription_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->text('description');
             $table->double('price');
             $table->integer('sort_order');

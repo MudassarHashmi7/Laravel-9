@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('medias', function (Blueprint $table) {
             $table->id();
-//            $table->foreignId('s3_id')->constrained()->nullable();
+            $table->string('s3_id');
             $table->string('file_name');
             $table->string('file_type');
             $table->timestamps();

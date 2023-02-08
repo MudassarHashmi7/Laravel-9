@@ -8,11 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AgentAgreement extends Model
 {
     use HasFactory;
-    public function user()
-    {
-        return $this->hasMany(User::class);
-    }
-    public function useragent()
+    public function useragent ()
     {
         return $this->belongsTo(User::class);
     }

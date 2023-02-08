@@ -14,7 +14,7 @@ class AppointmentType extends Model
     }
     public function appointment()
     {
-        return $this->hasMany(Appointment::class);
+        return $this->hasMany(Appointment::class,'appointment_type_id');
     }
     public function media()
     {

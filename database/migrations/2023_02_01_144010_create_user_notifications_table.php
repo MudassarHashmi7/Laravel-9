@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('user_notifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('region_id')->constrained('regions')->references('id');
+            $table->foreignId('region_id')->nullable()->constrained('regions')->references('id')->onUpdate('cascade')->onDelete('cascade');;
             $table->boolean('is_registered');
             $table->string('full_name');
             $table->string('email');

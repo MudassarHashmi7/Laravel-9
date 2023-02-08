@@ -20,4 +20,8 @@ class Subscription extends Model
     {
         return $this->hasMany(SubscriptionItem::class,'subscription_id');
     }
+    public function invoice()
+    {
+        return $this->hasMany(Invoice::class,'subscription_id');
+    }
 }

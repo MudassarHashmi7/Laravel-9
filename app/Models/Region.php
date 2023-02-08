@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     use HasFactory;
-    public function user()
+
+    public function user1()
     {
         return $this->hasMany(User::class,'region_id');
     }
@@ -18,10 +19,10 @@ class Region extends Model
     }
     public function regioncontent()
     {
-        return $this->hasMany(RegionContent::class);
+        return $this->hasMany(RegionContent::class,'region_id');
     }
     public function prospect()
     {
-        return $this->hasMany(Prospect::class);
+        return $this->hasMany(Prospect::class,'region_id');
     }
 }

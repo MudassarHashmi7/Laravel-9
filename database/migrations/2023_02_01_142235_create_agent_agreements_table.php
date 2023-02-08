@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('agent_agreements', function (Blueprint $table) {
             $table->id();
-          //  $table->unsignedBigInteger('agent_id');
-            $table->foreignId('agent_id')->constrained('users')->references('id');
+            $table->foreignId('agent_id')->nullable()->constrained('users')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->double('fee_percentage');
             $table->text('description');
-            $table->foreignId('document_id')->constrained('medias')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('document_id')->nullable()->constrained('medias')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

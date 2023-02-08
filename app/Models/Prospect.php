@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Prospect extends Model
 {
     use HasFactory;
+protected $fillable = [
+'region_id'
+];
     public function region()
+
     {
         return $this->belongsTo(Region::class);
     }

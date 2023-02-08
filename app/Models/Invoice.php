@@ -18,15 +18,15 @@ class Invoice extends Model
     }
     public function userpayee()
     {
-        return $this->hasMany(User::class,'payee_id');
+        return $this->belongsTo(User::class);
     }
     public function userrecipient()
     {
-        return $this->hasMany(User::class,'recipient_id');
+        return $this->belongsTo(User::class,);
     }
-    public function usersubscription()
+    public function subscription()
     {
-        return $this->hasMany(Subscription::class);
+        return $this->belongsTo(Subscription::class);
     }
 
 }

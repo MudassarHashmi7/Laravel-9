@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
+    protected $table = 'medias';
     use HasFactory;
     public function users()
     {
