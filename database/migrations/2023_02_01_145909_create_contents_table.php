@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('roadmap_step_id')->constrained('roadmap_steps')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('roadmap_step_id')->nullable()->constrained('roadmap_steps')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->boolean('is_editable');
             $table->integer('type');
             $table->text('content');

@@ -2,15 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
+use App\Models\Region;
 use App\Models\User;
-use App\Models\RoleUser;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class RoleSeeder extends Seeder
+class RegionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,30 +17,33 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $role = [
+        $regions = [
             [
                 'id'=>1,
-                'name' => 'Superadmin',
+                'name' => 'Asia',
                 'created_at'=> Carbon::now(),
                 'updated_at'=> Carbon::now(),
             ],
             [
                 'id'=>2,
-                'name' => 'Admin',
+                'name' => 'Africa',
                 'created_at'=> Carbon::now(),
                 'updated_at'=> Carbon::now(),
             ],
             [
                 'id'=>3,
-                'name' => 'customer',
+                'name' => 'USA',
                 'created_at'=> Carbon::now(),
                 'updated_at'=> Carbon::now(),
             ]
 
-];
-        foreach ($role as $roles)
-            $newUser = Role::query()->updateOrCreate(['id' => $roles['id']], $roles);
-        $newUser->permissions()->sync([1,2, 3]);
+        ];
+
+
+        foreach ($regions as $key => $region)
+        {
+            $newUser = Region::query()->updateOrCreate(['id' => $region['id']], $region);
+
+        }
     }
 }

@@ -18,7 +18,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        $entities = ['Superadmin', 'Admin', 'customer'];
+        $entities = ['user', 'role', 'media'];
         $permissions = ['-view-any' => 'can view any ',
             '-view' => 'can view ',
             '-create' => 'can create ',
@@ -41,6 +41,7 @@ class PermissionSeeder extends Seeder
         if ($roles) {
             $roles->permissions()->attach(Permission::all());
         }
+
     }
 
 
